@@ -34,8 +34,23 @@ func main() {
 			zipCode: 201005,
 		},
 	}
+	alex4.updateFirstName("Vikas rockstar")
 
-	fmt.Println(alex4)
-	fmt.Printf("%+v", alex4)
+	s := []string{"a", "b", "c"}
+	fmt.Println(&s)
+	s[0] = "z"
+	fmt.Println(&s)
+	fmt.Println(s)
+}
 
+func (p person) print() {
+	fmt.Printf("%+v", p)
+}
+
+func (p person) updateFirstName(newFirstName string) {
+	// jimAdd := &p
+	// fmt.Println(jimAdd)
+	// (*jimAdd).firstname = newFirstName
+	// fmt.Println(*jimAdd)
+	// fmt.Println(p)
 }
