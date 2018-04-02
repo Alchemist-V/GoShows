@@ -2,9 +2,15 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 )
+
+// MyWriter inteface
+type MyWriter interface {
+	Write(p []byte) (n int, err error)
+}
 
 func main() {
 	resp, err := http.Get("http://google.com")
@@ -16,5 +22,6 @@ func main() {
 
 	// Any IO shall implement reader and closer interface.
 	resp.Body.Read(bs)
-	fmt.Println(string(bs))
+	io.Copy(os.Stdout, VBody.Body)
+
 }
